@@ -1,12 +1,16 @@
 package com.example.realestate.feature.contactagent
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -42,7 +46,7 @@ fun ContactAgentScreen(
                 title = { Text("Contact Agent") },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -70,7 +74,7 @@ fun ContactAgentScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    imageVector = Icons.Default.Person,
+                    imageVector = Icons.Filled.Person,
                     contentDescription = "Agent Avatar",
                     modifier = Modifier.size(60.dp),
                     tint = Color.Gray
@@ -102,13 +106,13 @@ fun ContactAgentScreen(
 
             // Contact Info
             ContactInfoCard(
-                icon = Icons.Default.Email,
+                icon = Icons.Filled.Email,
                 label = "Email",
                 value = agent.email
             )
 
             ContactInfoCard(
-                icon = Icons.Default.Phone,
+                icon = Icons.Filled.Phone,
                 label = "Phone",
                 value = agent.phone
             )
