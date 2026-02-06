@@ -215,7 +215,7 @@ fun PropertyDetailScreen(
 
                 // Contact Button
                 Button(
-                    onClick = { /* TODO: Implement contact functionality */ },
+                    onClick = { navController.navigate("contact_agent/$propertyId") },
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(12.dp)
                 ) {

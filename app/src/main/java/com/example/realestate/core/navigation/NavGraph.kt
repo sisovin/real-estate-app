@@ -11,6 +11,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.realestate.feature.contactagent.ContactAgentScreen
 import com.example.realestate.feature.favorites.FavoritesScreen
 import com.example.realestate.feature.home.HomeScreen
 import com.example.realestate.feature.propertydetail.PropertyDetailScreen
@@ -72,6 +73,13 @@ fun MainNavigation() {
             ) { backStackEntry ->
                 val propertyId = backStackEntry.arguments?.getInt("propertyId")?.toString() ?: ""
                 PropertyDetailScreen(navController = navController, propertyId = propertyId, favoritesViewModel = favoritesViewModel)
+            }
+            composable(
+                route = Screen.ContactAgent.route,
+                arguments = listOf(navArgument("propertyId") { type = NavType.StringType })
+            ) { backStackEntry ->
+                val propertyId = backStackEntry.arguments?.getString("propertyId") ?: ""
+                ContactAgentScreen(navController = navController, propertyId = propertyId)
             }
         }
     }
