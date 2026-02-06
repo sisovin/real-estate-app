@@ -106,7 +106,7 @@ fun ProfileScreen(
             ProfileOptionCard(
                 icon = Icons.Default.Edit,
                 title = "Edit Profile",
-                onClick = { /* Navigate to edit profile */ }
+                onClick = { navController.navigate("edit_profile") }
             )
 
             ProfileOptionCard(

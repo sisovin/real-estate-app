@@ -12,6 +12,7 @@ sealed class Screen(val route: String, val title: String, val icon: ImageVector)
     object Profile : Screen("profile", "Profile", Icons.Default.Person)
     object PropertyDetail : Screen("property_detail/{propertyId}", "Property Detail", Icons.Default.Home)
     object ContactAgent : Screen("contact_agent/{propertyId}", "Contact Agent", Icons.Default.Home)
+    object EditProfile : Screen("edit_profile", "Edit Profile", Icons.Default.Home)
 
     companion object {
         val bottomNavItems = listOf(Home, Favorites, Profile)
