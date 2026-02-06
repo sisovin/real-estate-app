@@ -112,7 +112,7 @@ fun ProfileScreen(
             ProfileOptionCard(
                 icon = Icons.Default.Settings,
                 title = "Settings",
-                onClick = { /* Navigate to settings */ }
+                onClick = { navController.navigate("settings") }
             )
 
             ProfileOptionCard(

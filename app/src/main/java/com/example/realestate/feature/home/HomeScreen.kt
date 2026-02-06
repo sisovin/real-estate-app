@@ -49,7 +49,7 @@ fun HomeScreen(
             .background(MaterialTheme.colorScheme.background)
     ) {
         // Header
-        HeaderSection()
+        HeaderSection(navController)
 
         // Search Bar
         RealEstateSearchBar(modifier = Modifier.padding(top = 16.dp))
@@ -90,7 +90,7 @@ fun HomeScreen(
 }
 
 @Composable
-fun HeaderSection() {
+fun HeaderSection(navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -128,11 +128,13 @@ fun HeaderSection() {
             color = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)
         ) {
             Box(contentAlignment = Alignment.Center) {
-                Icon(
-                    imageVector = Icons.Default.Notifications,
-                    contentDescription = "Notifications",
-                    modifier = Modifier.size(24.dp)
-                )
+                IconButton(onClick = { navController.navigate("notifications") }) {
+                    Icon(
+                        imageVector = Icons.Default.Notifications,
+                        contentDescription = "Notifications",
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
             }
         }
     }

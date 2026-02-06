@@ -13,6 +13,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.realestate.feature.contactagent.ContactAgentScreen
 import com.example.realestate.feature.editprofile.EditProfileScreen
+import com.example.realestate.feature.notification.NotificationScreen
 import com.example.realestate.feature.favorites.FavoritesScreen
 import com.example.realestate.feature.home.HomeScreen
 import com.example.realestate.feature.propertydetail.PropertyDetailScreen
@@ -21,6 +22,7 @@ import androidx.navigation.navArgument
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.realestate.feature.favorites.FavoritesViewModel
 import com.example.realestate.feature.profile.ProfileScreen
+import com.example.realestate.feature.settings.SettingsScreen
 
 @Composable
 fun MainNavigation() {
@@ -84,6 +86,12 @@ fun MainNavigation() {
             }
             composable(Screen.EditProfile.route) {
                 EditProfileScreen(navController = navController)
+            }
+            composable(Screen.Settings.route) {
+                SettingsScreen(navController = navController)
+            }
+            composable(Screen.Notification.route) {
+                NotificationScreen(navController = navController)
             }
         }
     }
