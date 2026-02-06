@@ -16,12 +16,16 @@ import com.example.realestate.feature.home.HomeScreen
 import com.example.realestate.feature.propertydetail.PropertyDetailScreen
 import com.example.realestate.ui.components.FloatingBottomNavBar
 import androidx.navigation.navArgument
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.realestate.feature.favorites.FavoritesViewModel
 
 @Composable
 fun MainNavigation() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+
+    val favoritesViewModel: FavoritesViewModel = viewModel()
 
     Scaffold(
         bottomBar = {
@@ -53,10 +57,10 @@ fun MainNavigation() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Home.route) {
-                HomeScreen(navController = navController)
+                HomeScreen(navController = navController, favoritesViewModel = favoritesViewModel)
             }
             composable(Screen.Favorites.route) {
-                FavoritesScreen(navController = navController)
+                FavoritesScreen(navController = navController, favoritesViewModel = favoritesViewModel)
             }
             composable(Screen.Profile.route) {
                 // ProfileScreen() placeholder
@@ -67,7 +71,7 @@ fun MainNavigation() {
                 arguments = listOf(navArgument("propertyId") { type = NavType.IntType })
             ) { backStackEntry ->
                 val propertyId = backStackEntry.arguments?.getInt("propertyId")?.toString() ?: ""
-                PropertyDetailScreen(navController = navController, propertyId = propertyId)
+                PropertyDetailScreen(navController = navController, propertyId = propertyId, favoritesViewModel = favoritesViewModel)
             }
         }
     }

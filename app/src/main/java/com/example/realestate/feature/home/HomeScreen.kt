@@ -60,7 +60,7 @@ fun HomeScreen(
         // Property List
         LazyColumn(
             modifier = Modifier
-                .fillMaxSize()
+                .weight(1f)
                 .padding(horizontal = 16.dp),
             contentPadding = PaddingValues(bottom = 100.dp) // Bottom padding for floating nav
         ) {
