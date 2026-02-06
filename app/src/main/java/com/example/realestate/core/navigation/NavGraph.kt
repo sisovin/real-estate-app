@@ -18,6 +18,7 @@ import com.example.realestate.ui.components.FloatingBottomNavBar
 import androidx.navigation.navArgument
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.realestate.feature.favorites.FavoritesViewModel
+import com.example.realestate.feature.profile.ProfileScreen
 
 @Composable
 fun MainNavigation() {
@@ -63,8 +64,7 @@ fun MainNavigation() {
                 FavoritesScreen(navController = navController, favoritesViewModel = favoritesViewModel)
             }
             composable(Screen.Profile.route) {
-                // ProfileScreen() placeholder
-                PlaceholderScreen("Profile")
+                ProfileScreen(navController = navController, favoritesViewModel = favoritesViewModel)
             }
             composable(
                 route = Screen.PropertyDetail.route,
